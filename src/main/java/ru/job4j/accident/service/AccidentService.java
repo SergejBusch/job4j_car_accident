@@ -20,4 +20,16 @@ public class AccidentService {
     public List<Accident> getAllAccidents() {
         return new ArrayList<>(accidentMem.getAccidents().values());
     }
+
+    public Accident getAccident(int id) {
+        return accidentMem.getById(id);
+    }
+
+    public void create(Accident accident) {
+        accidentMem.create(accident);
+    }
+
+    public void update(Accident accident) {
+        accidentMem.update(accident);
+    }
 }

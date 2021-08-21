@@ -11,12 +11,25 @@ public class AccidentMem {
     private final HashMap<Integer, Accident> accidents = new HashMap<>();
 
     public AccidentMem() {
-        accidents.put(1, new Accident(1, "a", "desc", "a1"));
-        accidents.put(2, new Accident(2, "b", "desc", "b2"));
-        accidents.put(3, new Accident(3, "c", "desc", "c3"));
+        this.create(new Accident(id, "a", "desc", "a1"));
+        this.create(new Accident(id, "b", "desc", "b2"));
+        this.create(new Accident(id, "c", "desc", "c3"));
     }
 
     public HashMap<Integer, Accident> getAccidents() {
         return accidents;
+    }
+
+    public void create(Accident accident) {
+        accident.setId(id);
+        accidents.put(id++, accident);
+    }
+
+    public void update(Accident accident) {
+        accidents.put(accident.getId(), accident);
+    }
+
+    public Accident getById(int id) {
+        return accidents.get(id);
     }
 }

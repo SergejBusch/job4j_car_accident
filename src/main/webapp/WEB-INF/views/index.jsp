@@ -6,6 +6,7 @@
 </head>
 <body>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <a href="<c:url value='/create'/>">Add new accident</a>
   <div class="d-flex justify-content-center p-5">
     <table class="table table-bordered border-primary">
       <thead>
@@ -14,6 +15,7 @@
         <th scope="col">Name</th>
         <th scope="col">Text</th>
         <th scope="col">Address</th>
+        <th scope="col">Edit</th>
       </tr>
       </thead>
       <c:forEach items="${accidents}" var="accident" >
@@ -22,6 +24,7 @@
           <td>${accident.name}</td>
           <td>${accident.text}</td>
           <td>${accident.address}</td>
+          <td><a href="<c:url value='/edit?id=${accident.id}'/>">Edit</a></td>
         </tr>
       </c:forEach>
       </tbody>
