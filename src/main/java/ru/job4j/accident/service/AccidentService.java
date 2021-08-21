@@ -18,7 +18,7 @@ public class AccidentService {
     }
 
     public List<Accident> getAllAccidents() {
-        return new ArrayList<>(accidentMem.getAccidents().values());
+        return new ArrayList<>(accidentMem.getAccidents());
     }
 
     public Accident getAccident(int id) {
