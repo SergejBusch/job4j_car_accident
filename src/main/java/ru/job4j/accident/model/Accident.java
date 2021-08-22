@@ -12,4 +12,5 @@ public class Accident {
     private String name;
     private String text;
     private String address;
+    private AccidentType type;
 }

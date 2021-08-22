@@ -2,6 +2,7 @@ package ru.job4j.accident.repository;
 
 import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.model.AccidentType;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -13,9 +14,9 @@ public class AccidentMem {
     private final HashMap<Integer, Accident> accidents = new HashMap<>();
 
     public AccidentMem() {
-        this.create(new Accident(id.get(), "a", "desc", "a1"));
-        this.create(new Accident(id.get(), "b", "desc", "b2"));
-        this.create(new Accident(id.get(), "c", "desc", "c3"));
+        this.create(new Accident(id.get(), "a", "desc", "a1", AccidentType.of(1, "Two cars")));
+        this.create(new Accident(id.get(), "b", "desc", "b2", AccidentType.of(2, "Car and man")));
+        this.create(new Accident(id.get(), "c", "desc", "c3", AccidentType.of(3, "Car and bicycle")));
     }
 
     public Collection<Accident> getAccidents() {
