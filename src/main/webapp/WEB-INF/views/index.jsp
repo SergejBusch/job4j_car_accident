@@ -15,15 +15,20 @@
         <th scope="col">Name</th>
         <th scope="col">Text</th>
         <th scope="col">Address</th>
+        <th scope="col">Accident type</th>
+        <th scope="col">Rules</th>
         <th scope="col">Edit</th>
       </tr>
       </thead>
+      <tbody>
       <c:forEach items="${accidents}" var="accident" >
         <tr>
           <th scope="row">${accident.id}</th>
           <td>${accident.name}</td>
           <td>${accident.text}</td>
           <td>${accident.address}</td>
+          <td>${accident.type.name}</td>
+          <td>${accident.rules}</td>
           <td><a href="<c:url value='/edit?id=${accident.id}'/>">Edit</a></td>
         </tr>
       </c:forEach>

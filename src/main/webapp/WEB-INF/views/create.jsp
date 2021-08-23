@@ -9,7 +9,7 @@
     <table>
         <tr>
             <td>Name:</td>
-            <td><input type='text' name='name'></td>
+            <td><input type='text' name='name' required></td>
         </tr>
         <tr>
             <td>Type:</td>
@@ -19,6 +19,17 @@
                         <option value="${type.id}">${type.name}</option>
                     </c:forEach>
                 </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Rules:</td>
+            <td>
+                <select name="rIds" multiple required>
+                    <c:forEach var="rule" items="${rules}" >
+                        <option value="${rule.id}">${rule.name}</option>
+                    </c:forEach>
+                </select>
+            </td>
         </tr>
         <tr>
             <td colspan='2'><input name="submit" type="submit" value="Save" /></td>
