@@ -53,6 +53,14 @@ public class AccidentMem {
         return accidents.get(id);
     }
 
+    public Collection<AccidentType> getTypes() {
+        return types.values();
+    }
+
+    public Collection<Rule> getRules() {
+        return rules.values();
+    }
+
     public Rule getRuleById(int id) {
         return rules.get(id);
     }

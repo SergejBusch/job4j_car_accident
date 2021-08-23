@@ -8,6 +8,7 @@ import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.repository.AccidentMem;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -34,6 +35,14 @@ public class AccidentService {
 
     public void update(Accident accident) {
         accidentMem.update(accident);
+    }
+
+    public Collection<Rule> getRules() {
+        return accidentMem.getRules();
+    }
+
+    public Collection<AccidentType> getTypes() {
+        return accidentMem.getTypes();
     }
 
     public Set<Rule> getRulesByIds(String... ids) {

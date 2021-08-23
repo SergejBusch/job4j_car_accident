@@ -24,7 +24,7 @@
             </td>
             <td>Rules:</td>
             <td>
-                <select name="rIds" multiple>
+                <select name="rIds" multiple required>
                     <c:forEach var="rule" items="${rules}" >
                         <option value="${rule.id}">${rule.name}</option>
                     </c:forEach>

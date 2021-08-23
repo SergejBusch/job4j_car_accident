@@ -9,8 +9,7 @@ import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.service.AccidentService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 @Controller
 public class AccidentControl {
@@ -53,15 +52,10 @@ public class AccidentControl {
     }
 
     private void getTypesAndRules(Model model) {
-        List<AccidentType> types = new ArrayList<>();
-        types.add(AccidentType.of(1, "Two cars"));
-        types.add(AccidentType.of(2, "Car and man"));
-        types.add(AccidentType.of(3, "Car and bicycle"));
+        Collection<AccidentType> types = service.getTypes();
         model.addAttribute("types", types);
-        List<Rule> rules = new ArrayList<>();
-        rules.add(Rule.of(1, "Rule. 1"));
-        rules.add(Rule.of(2, "Rule. 2"));
-        rules.add(Rule.of(3, "Rule. 3"));
+
+        Collection<Rule> rules = service.getRules();
         model.addAttribute("rules", rules);
     }
 }
