@@ -4,7 +4,6 @@ import java.util.Objects;
 
 public class AccidentType {
     private int id;
-
     private String name;
 
     public static AccidentType of(int id, String name) {

@@ -14,7 +14,7 @@
         <tr>
             <td>Type:</td>
             <td>
-                <select name="type.id">
+                <select name="type.id" required>
                     <c:forEach var="type" items="${types}" >
                         <option value="${type.id}">${type.name}</option>
                     </c:forEach>
