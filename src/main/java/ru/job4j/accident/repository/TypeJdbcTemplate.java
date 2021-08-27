@@ -6,7 +6,7 @@ import ru.job4j.accident.model.AccidentType;
 
 import java.util.List;
 
-@Repository
+//@Repository
 public class TypeJdbcTemplate {
     private final JdbcTemplate jdbc;
 
@@ -15,7 +15,7 @@ public class TypeJdbcTemplate {
     }
 
     public List<AccidentType> getAll() {
-        return jdbc.query("select id, name from type",
+        return jdbc.query("select id, name from accidenttype",
                 (rs, row) -> {
                     AccidentType accidentType = new AccidentType();
                     accidentType.setId(rs.getInt("id"));
@@ -26,7 +26,7 @@ public class TypeJdbcTemplate {
 
     public AccidentType getById(int id) {
         return jdbc.queryForObject(
-                "select name from type where id = ?",
+                "select name from accidenttype where id = ?",
                 (rsl, row) -> {
                     AccidentType newType = new AccidentType();
                     newType.setId(id);

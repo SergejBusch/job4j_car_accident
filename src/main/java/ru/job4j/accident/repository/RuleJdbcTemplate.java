@@ -1,13 +1,11 @@
 package ru.job4j.accident.repository;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
-import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
 
 import java.util.*;
 
-@Repository
+//@Repository
 public class RuleJdbcTemplate {
     private final JdbcTemplate jdbc;
 
@@ -59,7 +57,7 @@ public class RuleJdbcTemplate {
 
     private List<Integer> getRuleIds(int accidentId) {
         return jdbc.query(
-                "select rule_id from accident_rule where accident_id = ?",
+                "select rules_id from accident_rule where accident_id = ?",
                 (rsl, row) -> rsl.getInt("rule_id"), accidentId
         );
 

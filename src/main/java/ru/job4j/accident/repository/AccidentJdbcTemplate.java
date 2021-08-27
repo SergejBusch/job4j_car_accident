@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.Collection;
 import java.util.Set;
 
-@Repository
+//@Repository
 public class AccidentJdbcTemplate {
     private final JdbcTemplate jdbc;
     private RuleJdbcTemplate ruleJdbcTemplate;
@@ -72,18 +72,15 @@ public class AccidentJdbcTemplate {
     }
 
     public Accident getById(int id) {
-        Accident accident = jdbc.queryForObject(
+        return jdbc.queryForObject(
                 "select name, text, address, type_id from accident where id = ?",
-                (rsl, row) -> {
-                    var newAccident = new Accident(id,
-                            rsl.getString("name"),
-                            rsl.getString("text"),
-                            rsl.getString("address"),
-                            typeJdbcTemplate.getById(rsl.getInt("type_id")),
-                            ruleJdbcTemplate.getRulesByAccidentId(id));
-                    return newAccident;
-                }, id);
-    return accident;
+                (rsl, row) -> new Accident(id,
+                        rsl.getString("name"),
+                        rsl.getString("text"),
+                        rsl.getString("address"),
+                        typeJdbcTemplate.getById(rsl.getInt("type_id")),
+                        ruleJdbcTemplate.getRulesByAccidentId(id)), id
+        );
     }
 
     private void updateRulesForAccident(int id, Set<Rule> rules) {
@@ -98,7 +95,7 @@ public class AccidentJdbcTemplate {
 
     private void insertRules(int id, Set<Rule> rules) {
         for (var rule : rules) {
-            jdbc.update("insert into accident_rule(accident_id, rule_id) values (?, ?)",
+            jdbc.update("insert into accident_rule(accident_id, rules_id) values (?, ?)",
                     id, rule.getId());
         }
     }
