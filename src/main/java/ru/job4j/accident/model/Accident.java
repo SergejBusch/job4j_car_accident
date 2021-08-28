@@ -24,6 +24,6 @@ public class Accident {
     @OneToOne(fetch = FetchType.LAZY)
     private AccidentType type;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.MERGE})
     private Set<Rule> rules = new HashSet<>();
 }
