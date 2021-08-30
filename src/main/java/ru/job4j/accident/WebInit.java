@@ -3,7 +3,6 @@ package ru.job4j.accident;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
-import ru.job4j.accident.config.DataConfig;
 import ru.job4j.accident.config.WebConfig;
 
 import javax.servlet.ServletContext;
