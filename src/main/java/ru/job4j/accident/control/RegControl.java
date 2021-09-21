@@ -25,6 +25,9 @@ public class RegControl {
 
     @PostMapping("/reg")
     public String save(@ModelAttribute User user) {
+        if (userCheck(user)) {
+            return "reg";
+        }
         user.setEnabled(true);
         user.setPassword(encoder.encode(user.getPassword()));
         user.setAuthority(authorities.findByAuthority("ROLE_USER"));
@@ -35,5 +38,9 @@ public class RegControl {
     @GetMapping("/reg")
     public String reg(@ModelAttribute Accident accident) {
         return "reg";
+    }
+
+    private boolean userCheck(User user) {
+        return users.findByUsername(user.getUsername()).orElse(null) != null;
     }
 }
